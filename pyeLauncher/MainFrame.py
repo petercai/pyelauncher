@@ -69,6 +69,8 @@ class AppFrame(wx.Frame):
               heading='Eclipse', width=85)
         parent.InsertColumn(col=2, format=wx.LIST_FORMAT_LEFT, heading='JVM',
               width=85)
+        parent.InsertColumn(col=3, format=wx.LIST_FORMAT_LEFT,
+              heading='Workspace', width=-1)
 
     def _init_coll_mainStatusBar_Fields(self, parent):
         # generated method, don't edit
@@ -160,6 +162,7 @@ class AppFrame(wx.Frame):
             index = self.lstProfiles.InsertStringItem(sys.maxint, config.get_TaskbarName())
             self.lstProfiles.SetStringItem(index, 1, config.get_EclipseLoc())
             self.lstProfiles.SetStringItem(index, 2, config.get_VMLoc())
+            self.lstProfiles.SetStringItem(index, 3, config.get_WorkspaceLoc())
         
     def __init__(self, parent):
         self._init_ctrls(parent)
@@ -188,6 +191,7 @@ class AppFrame(wx.Frame):
         self.lstProfiles.SetStringItem(self.currentItemIndex, 0, profileName)
         self.lstProfiles.SetStringItem(self.currentItemIndex, 1, profile.get_EclipseLoc())
         self.lstProfiles.SetStringItem(self.currentItemIndex, 2, profile.get_VMLoc())
+        self.lstProfiles.SetStringItem(self.currentItemIndex, 3, profile.get_WorkspaceLoc())
         self.save()
 
     def addProfile(self, profile):
@@ -196,6 +200,7 @@ class AppFrame(wx.Frame):
         index = self.lstProfiles.InsertStringItem(sys.maxint, profile.get_TaskbarName())
         self.lstProfiles.SetStringItem(index, 1, profile.get_EclipseLoc())
         self.lstProfiles.SetStringItem(index, 2, profile.get_VMLoc())
+        self.lstProfiles.SetStringItem(index, 3, profile.get_WorkspaceLoc())
         
         self._rootObj.add_Config(profile);
         
