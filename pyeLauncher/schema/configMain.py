@@ -26,8 +26,8 @@ def accessData(root):
     for config in _configs: 
         _taskbarName = config.get_TaskbarName()
         config.set_TaskbarName(_taskbarName+"_pyext")
-        print "Name="+_taskbarName;    
-    
+        print("Name=" + _taskbarName)
+
 
 if __name__ == '__main__':
     main()
