@@ -165,7 +165,7 @@ class AppFrame(wx.Frame):
     def __init__(self, parent):
         self._init_ctrls(parent)
         # read profile
-        self._configName = "elauncher.xml"
+        self._configName = "config/elauncher.xml"
         doc = minidom.parse(self._configName)
         rootNode = doc.documentElement
         self._rootObj = LaunchConfigs.factory()

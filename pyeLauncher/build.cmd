@@ -9,7 +9,10 @@ if ""%1"" == ""build"" goto build
 if ""%1"" == ""clean"" goto clean
 
 :spec
-set OPTION=--clean --onedir --windowed --icon=peppermint.jpg -n peppermintLauncher 
+set OPTION=--clean --windowed ^
+              --add-data="config/elauncher.xml:config" ^
+              --icon=peppermint.jpg ^
+              -n peppermintLauncher 
 @REM set OPTION=--clean --onefile --onedir --windowed --icon=peppermint.jpg -n pyelauncher 
 pyinstaller %OPTION% launcherApp.py
 goto END

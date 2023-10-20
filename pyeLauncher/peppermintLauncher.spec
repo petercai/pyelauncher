@@ -1,11 +1,15 @@
 # -*- mode: python ; coding: utf-8 -*-
 
+options = [
+    ('v', None, 'OPTION'),
+    ('W ignore', None, 'OPTION'),
+]
 
 a = Analysis(
     ['launcherApp.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('config/elauncher.xml', 'config')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -18,6 +22,7 @@ pyz = PYZ(a.pure)
 exe = EXE(
     pyz,
     a.scripts,
+    options,  # <-- the options list, passed to EXE
     [],
     exclude_binaries=True,
     name='peppermintLauncher',
