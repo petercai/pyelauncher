@@ -188,19 +188,20 @@ class AppFrame(wx.Frame):
     def saveProfile(self, profile):
         # update UI
         profileName = profile.get_TaskbarName()
-        self.lstProfiles.SetStringItem(self.currentItemIndex, 0, profileName)
-        self.lstProfiles.SetStringItem(self.currentItemIndex, 1, profile.get_EclipseLoc())
-        self.lstProfiles.SetStringItem(self.currentItemIndex, 2, profile.get_VMLoc())
-        self.lstProfiles.SetStringItem(self.currentItemIndex, 3, profile.get_WorkspaceLoc())
+        self.lstProfiles.SetItem(self.currentItemIndex, 0, profileName)
+        self.lstProfiles.SetItem(self.currentItemIndex, 1, profile.get_EclipseLoc())
+        self.lstProfiles.SetItem(self.currentItemIndex, 2, profile.get_VMLoc())
+        self.lstProfiles.SetItem(self.currentItemIndex, 3, profile.get_WorkspaceLoc())
         self.save()
 
     def addProfile(self, profile):
         # update UI
         profileName = profile.get_TaskbarName()
-        index = self.lstProfiles.InsertStringItem(sys.maxint, profile.get_TaskbarName())
-        self.lstProfiles.SetStringItem(index, 1, profile.get_EclipseLoc())
-        self.lstProfiles.SetStringItem(index, 2, profile.get_VMLoc())
-        self.lstProfiles.SetStringItem(index, 3, profile.get_WorkspaceLoc())
+
+        index = self.lstProfiles.InsertItem(self.lstProfiles.GetItemCount(), profile.get_TaskbarName())
+        self.lstProfiles.SetItem(index, 1, profile.get_EclipseLoc())
+        self.lstProfiles.SetItem(index, 2, profile.get_VMLoc())
+        self.lstProfiles.SetItem(index, 3, profile.get_WorkspaceLoc())
         
         self._rootObj.add_Config(profile);
         
@@ -276,7 +277,7 @@ class AppFrame(wx.Frame):
             
 
     def OnLstProfilesListItemSelected(self, event):
-        self.currentItemIndex = event.m_itemIndex;
+        self.currentItemIndex = event.Index;
 
     def OnBtnDeleteProfileButton(self, event):
 #        self._configs.remove(self.currentItemIndex)

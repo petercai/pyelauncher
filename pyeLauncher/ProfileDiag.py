@@ -236,7 +236,7 @@ class ProfileDialog(wx.Dialog):
             defaultDir=self.textEclipseLocation.Value, 
             defaultFile="eclipse.exe",
             wildcard="*.exe",
-            style=wx.OPEN 
+            style=wx.FD_OPEN
             )
 
         # Show the dialog and retrieve the user response. If it is the OK response, 
