@@ -39,24 +39,24 @@ class AppFrame(wx.Frame):
     def _init_coll_editMenu_Items(self, parent):
         # generated method, don't edit
 
-        parent.Append(help='', id=wxID_APPFRAMEEDITMENUACTION_COPY,
-              kind=wx.ITEM_NORMAL, text='Copy')
-        parent.Append(help='', id=wxID_APPFRAMEEDITMENUACTION_EDIT,
-              kind=wx.ITEM_NORMAL, text='Edit')
+        parent.Append(helpString='', id=wxID_APPFRAMEEDITMENUACTION_COPY,
+              kind=wx.ITEM_NORMAL, item='Copy')
+        parent.Append(helpString='', id=wxID_APPFRAMEEDITMENUACTION_EDIT,
+              kind=wx.ITEM_NORMAL, item='Edit')
 
     def _init_coll_helpMenu_Items(self, parent):
         # generated method, don't edit
 
-        parent.Append(help='', id=wxID_APPFRAMEHELPMENUACTION_ABOUT,
-              kind=wx.ITEM_NORMAL, text='About')
+        parent.Append(helpString='', id=wxID_APPFRAMEHELPMENUACTION_ABOUT,
+              kind=wx.ITEM_NORMAL, item='About')
 
     def _init_coll_fileMenu_Items(self, parent):
         # generated method, don't edit
 
-        parent.Append(help='', id=wxID_APPFRAMEFILEMENUACTION_NEW,
-              kind=wx.ITEM_NORMAL, text='New...')
-        parent.Append(help='', id=wxID_APPFRAMEFILEMENUACTION_RUN,
-              kind=wx.ITEM_NORMAL, text='Run')
+        parent.Append(helpString='', id=wxID_APPFRAMEFILEMENUACTION_NEW,
+              kind=wx.ITEM_NORMAL, item='New...')
+        parent.Append(helpString='', id=wxID_APPFRAMEFILEMENUACTION_RUN,
+              kind=wx.ITEM_NORMAL, item='Run')
         self.Bind(wx.EVT_MENU, self.OnNewEclipseConfiguration,
               id=wxID_APPFRAMEFILEMENUACTION_NEW)
 
@@ -76,7 +76,7 @@ class AppFrame(wx.Frame):
         # generated method, don't edit
         parent.SetFieldsCount(1)
 
-        parent.SetStatusText(number=0, text='Ready')
+        parent.SetStatusText(text='Ready')
 
         parent.SetStatusWidths([-1])
 
@@ -149,7 +149,7 @@ class AppFrame(wx.Frame):
         self.btnNewProfile.Bind(wx.EVT_BUTTON, self.OnNewProfile,
               id=wxID_APPFRAMEBTNNEWPROFILE)
 
-        self.lstProfiles = wx.ListView(id=wxID_APPFRAMELSTPROFILES,
+        self.lstProfiles = wx.ListView(winid=wxID_APPFRAMELSTPROFILES,
               name='lstProfiles', parent=self.mainPanel, pos=wx.Point(8, 8),
               size=wx.Size(360, 240), style=wx.LC_SINGLE_SEL | wx.LC_REPORT)
         self._init_coll_lstProfiles_Columns(self.lstProfiles)
@@ -158,11 +158,11 @@ class AppFrame(wx.Frame):
               self.OnLstProfilesListItemSelected, id=wxID_APPFRAMELSTPROFILES)
 
     def initInstanceList(self):
-        for config in self._configs :
-            index = self.lstProfiles.InsertStringItem(sys.maxint, config.get_TaskbarName())
-            self.lstProfiles.SetStringItem(index, 1, config.get_EclipseLoc())
-            self.lstProfiles.SetStringItem(index, 2, config.get_VMLoc())
-            self.lstProfiles.SetStringItem(index, 3, config.get_WorkspaceLoc())
+        for i, config in enumerate( self._configs ):
+            index = self.lstProfiles.InsertItem(i, config.get_TaskbarName())
+            self.lstProfiles.SetItem(index, 1, config.get_EclipseLoc())
+            self.lstProfiles.SetItem(index, 2, config.get_VMLoc())
+            self.lstProfiles.SetItem(index, 3, config.get_WorkspaceLoc())
         
     def __init__(self, parent):
         self._init_ctrls(parent)
