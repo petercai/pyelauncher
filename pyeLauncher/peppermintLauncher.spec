@@ -1,15 +1,11 @@
 # -*- mode: python ; coding: utf-8 -*-
 
-options = [
-    ('v', None, 'OPTION'),
-    ('W ignore', None, 'OPTION'),
-]
 
 a = Analysis(
     ['launcherApp.py'],
     pathex=[],
     binaries=[],
-    datas=[('config/elauncher.xml', 'config')],
+    datas=[],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -22,14 +18,16 @@ pyz = PYZ(a.pure)
 exe = EXE(
     pyz,
     a.scripts,
-    options,  # <-- the options list, passed to EXE
+    a.binaries,
+    a.datas,
     [],
-    exclude_binaries=True,
     name='peppermintLauncher',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
+    upx_exclude=[],
+    runtime_tmpdir=None,
     console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
@@ -38,12 +36,12 @@ exe = EXE(
     entitlements_file=None,
     icon=['peppermint.jpg'],
 )
-coll = COLLECT(
-    exe,
-    a.binaries,
-    a.datas,
-    strip=False,
-    upx=True,
-    upx_exclude=[],
-    name='peppermintLauncher',
-)
+
+import os
+import shutil
+
+
+dest_path = os.path.join(DISTPATH,'config')
+os.makedirs(dest_path, exist_ok=True)
+shutil.copyfile(os.path.join('config','elauncher.xml'), os.path.join(dest_path,'elauncher.xml'))
+
