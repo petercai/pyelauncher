@@ -5,8 +5,6 @@ import wx
 from wx.lib.anchors import LayoutAnchors
 from ProfileDiag import ProfileDialog
 from schema.LauncherProfile import LaunchConfigs
-from schema.LauncherProfile import ConfigType
-import sys
 import copy
 
 def create(parent):

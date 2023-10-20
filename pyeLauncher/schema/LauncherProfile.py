@@ -5,7 +5,6 @@
 #
 
 import sys
-import getopt
 from xml.dom import minidom
 from xml.dom import Node
 str_lower = str.lower
