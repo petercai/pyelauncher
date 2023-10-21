@@ -87,7 +87,7 @@ class AppFrame(wx.Frame):
         self.helpMenu = wx.Menu(title='')
 
         self.mainMenuBar = wx.MenuBar()
-        self.mainMenuBar.SetClientSize(wx.Size(117150544, -1))
+        # self.mainMenuBar.SetClientSize(wx.Size(117150544, -1))
 
         self._init_coll_fileMenu_Items(self.fileMenu)
         self._init_coll_editMenu_Items(self.editMenu)
