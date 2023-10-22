@@ -231,11 +231,18 @@ class ProfileDialog(wx.Dialog):
         #
         # Finally, if the directory is changed in the process of getting files, this
         # dialog is set up to change the current working directory to the path chosen.
+
+        # Define the wildcard to filter executable files (e.g., .exe for Windows, .app for macOS)
+        wildcard = "Executable Files (*.exe;*.app)|*.exe;*.app|All Files (*.*)|*.*"
+
+        # Specify the default file (optional)
+        default_file = "eclipse.exe"  # Provide the default file name
+
         dlg = wx.FileDialog(
             self, message="Choose a file",
             defaultDir=self.textEclipseLocation.Value, 
-            defaultFile="eclipse.exe",
-            wildcard="*.exe",
+            defaultFile="SpringToolSuite4.app",
+            wildcard=wildcard,
             style=wx.FD_OPEN
             )
 
@@ -280,7 +287,7 @@ class ProfileDialog(wx.Dialog):
         elif eclipseLocation == None or len(eclipseLocation) == 0:
             self.txtEclipseNull.Show (True)
         elif  workspaceLocation == None or len(workspaceLocation) == 0:
-            self.txtWorkspaceNull.Show(Ture)
+            self.txtWorkspaceNull.Show(True)
         else :  
             # turn off error info
             self.txtNameNull.Show(False)
