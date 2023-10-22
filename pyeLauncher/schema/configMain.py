@@ -8,7 +8,7 @@ from LauncherProfile import LaunchConfigs
 import sys
 
 def main():
-    doc = minidom.parse("elauncher.xml")
+    doc = minidom.parse("../config/elauncher.xml")
     rootNode = doc.documentElement
     rootObj = LaunchConfigs.factory()
     rootObj.build(rootNode)

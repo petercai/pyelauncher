@@ -36,6 +36,12 @@ exe = EXE(
     entitlements_file=None,
     icon=['peppermint.jpg'],
 )
+app = BUNDLE(
+    exe,
+    name='peppermintLauncher.app',
+    icon='peppermint.jpg',
+    bundle_identifier=None,
+)
 
 import os
 import shutil
@@ -44,4 +50,3 @@ import shutil
 dest_path = os.path.join(DISTPATH,'config')
 os.makedirs(dest_path, exist_ok=True)
 shutil.copyfile(os.path.join('config','elauncher.xml'), os.path.join(dest_path,'elauncher.xml'))
-
