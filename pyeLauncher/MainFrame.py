@@ -233,7 +233,7 @@ class AppFrame(wx.Frame):
         # resize list view
         self.lstProfiles.Size = (self.btnCopyProfile.Position[0]-20, self.mainPanel.Size[1]-20)
         
-        varWidth = (self.lstProfiles.Size[0]-150)/3
+        varWidth = (self.lstProfiles.Size[0]-150)//3
         if varWidth > 85 :
             self.lstProfiles.SetColumnWidth(1, varWidth)
             self.lstProfiles.SetColumnWidth(2, varWidth)
