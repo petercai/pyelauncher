@@ -73,8 +73,8 @@ class ProfileDialog(wx.Dialog):
         self.cbRefresh.SetValue(True)
 
         self.fileBrowseJVM = wx.lib.filebrowsebutton.FileBrowseButton(buttonText='Browse',
-              dialogTitle='Choose a file', fileMask='*.exe',
-              id=wxID_PROFILEDIALOGFILEBROWSEJVM, initialValue='',
+              dialogTitle='Choose a file', fileMask="Executable Files (*.exe;*.app)|*.exe;*.app|All Files (*.*)|*.*",
+              id=wxID_PROFILEDIALOGFILEBROWSEJVM, initialValue='java',
               labelText='File Entry:', parent=self, pos=wx.Point(16, 296),
               size=wx.Size(496, 48), startDirectory='.', style=wx.TAB_TRAVERSAL,
               toolTip='Type filename or click browse to choose file')

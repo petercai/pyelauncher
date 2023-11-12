@@ -263,7 +263,7 @@ class AppFrame(wx.Frame):
         jvmargs= '-vmargs -Xms%sM -Xmx%sM %s' %(profile.get_Xms(), profile.get_Xmx(), profile.get_VMArgs() or '')
         jvm = '-vm \"%s\" %s' % (profile.get_VMLoc(), jvmargs)
         cmd = '\"%s\" %s %s %s %s' % (profile.get_EclipseLoc(), workspace, taskname, eargs, jvm)  
-        Popen(cmd)
+        process = Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE, text=True)
 
     def OnBtnEditProfileButton(self, event):
         profile = self._configs[self.currentItemIndex]
