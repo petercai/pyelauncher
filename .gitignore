@@ -1,5 +1,5 @@
 /pyeLauncher/venv/
-/pyeLauncher/.idea/
 *.pyc
 /generateDS-2.43.2/
 /.vscode/
+/.obsidian/
