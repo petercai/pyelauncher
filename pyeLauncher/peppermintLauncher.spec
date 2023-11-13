@@ -21,7 +21,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='peppermintLauncher',
+    name='PeppermintLauncher',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -38,7 +38,7 @@ exe = EXE(
 )
 app = BUNDLE(
     exe,
-    name='peppermintLauncher.app',
+    name='PeppermintLauncher.app',
     icon='peppermint.jpg',
     bundle_identifier=None,
 )
